@@ -22,10 +22,26 @@ class Stack
       @first = new_node
       @last = new_node
     else
-      @first.next = new_node
+      temp = @first
       @first = new_node
+      @first.next = temp
     end
 
     @count += 1
+  end
+
+  def pop
+    return nil if @first.nil?
+    
+    temp = @first
+    
+    if @first == @last
+      @last = nil
+    end
+    
+    @first = @first.next
+    @count -= 1
+
+    temp.value
   end
 end

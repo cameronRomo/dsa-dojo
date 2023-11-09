@@ -44,4 +44,16 @@ class Stack
 
     temp.value
   end
+
+  def peek
+    @first.value
+  end
+
+  def empty?
+    if @first.nil?
+      true
+    else
+      false
+    end
+  end
 end

@@ -56,4 +56,21 @@ class Stack
       false
     end
   end
+
+  def is_valid? brackets
+    if brackets.empty?
+      p "No value was passed, please pass a string of brackets to validate."
+      return false
+    end
+    brackets.each_char do |char|
+      if char == '('
+        push char
+      elsif @first == '(' && char == ')'
+        pop
+      else
+        false
+      end
+    end
+    true
+  end
 end

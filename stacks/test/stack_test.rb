@@ -1,6 +1,6 @@
 require 'minitest'
 require 'minitest/autorun'
-require './lib/stack.rb'
+require './stacks/lib/stack.rb'
 
 class StackTest < Minitest::Test
   def test_it_pushes

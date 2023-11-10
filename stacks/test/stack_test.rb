@@ -45,12 +45,18 @@ class StackTest < Minitest::Test
 
   def test_is_valid
     stack = Stack.new
-    validated_string = stack.is_valid? "()()())()"
+    validated_string = stack.is_valid? "(()()())()"
     assert_equal(true, validated_string)
   end
 
   def test_empty_string_not_valid
     stack = Stack.new
     assert_equal(false, stack.is_valid?(""))
+  end
+
+  def test_invalid_string
+    stack = Stack.new
+    validated_string = stack.is_valid? "(()()()()"
+    assert_equal(false, validated_string)
   end
 end

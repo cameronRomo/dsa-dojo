@@ -43,7 +43,7 @@ class StackTest < Minitest::Test
     assert_equal(false, stack.empty?)
   end
 
-  def test_is_valid
+  def test_parentheses_is_valid
     stack = Stack.new
     validated_string = stack.is_valid? "(()()())()"
     assert_equal(true, validated_string)
@@ -54,9 +54,33 @@ class StackTest < Minitest::Test
     assert_equal(false, stack.is_valid?(""))
   end
 
-  def test_invalid_string
+  def test__parentheses_invalid
     stack = Stack.new
     validated_string = stack.is_valid? "(()()()()"
+    assert_equal(false, validated_string)
+  end
+
+  def test_curly_bracket_is_valid
+    stack = Stack.new
+    validated_string = stack.is_valid? "{{}{}{}}{}"
+    assert_equal(true, validated_string)
+  end
+
+  def test_curly_bracket_is_invalid
+    stack = Stack.new
+    validated_string = stack.is_valid? "{{}{}{}}{"
+    assert_equal(false, validated_string)
+  end
+
+  def test_square_bracket_is_valid
+    stack = Stack.new
+    validated_string = stack.is_valid? "[[][][]][]"
+    assert_equal(true, validated_string)
+  end
+
+  def test_square_bracket_is_invalid
+    stack = Stack.new
+    validated_string = stack.is_valid? "[[][][]]["
     assert_equal(false, validated_string)
   end
 end

@@ -58,14 +58,16 @@ class Stack
   end
 
   def is_valid? brackets
+    bracket_map = { '(' => ')', '{' => '}', '[' => ']' }
+
     if brackets.empty?
       return false
     end
 
     brackets.each_char do |char|
-      if char == '('
+      if bracket_map.key? char
         push char
-      elsif @first&.value == '(' && char == ')'
+      elsif (bracket_map.key? @first&.value) && (bracket_map.value? char)
         pop
       else
         false

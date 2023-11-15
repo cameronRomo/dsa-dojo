@@ -50,11 +50,7 @@ class Stack
   end
 
   def empty?
-    if @first.nil?
-      true
-    else
-      false
-    end
+    @first&.value.nil? ? true : false
   end
 
   def is_valid? brackets
